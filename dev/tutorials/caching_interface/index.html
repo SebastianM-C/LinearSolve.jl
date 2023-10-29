@@ -12,22 +12,22 @@ prob = LinearProblem(A, b1)
 
 linsolve = init(prob)
 sol1 = solve!(linsolve)</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">u: 4-element Vector{Float64}:
- -1.1436750664205617
-  0.789110183999185
-  0.65958481833893
-  1.319088419265752</code></pre><pre><code class="language-julia hljs">linsolve.b = b2
+  1.0517115611681898
+ -0.378986006545754
+  1.4037986967522853
+ -1.485291268726241</code></pre><pre><code class="language-julia hljs">linsolve.b = b2
 sol2 = solve!(linsolve)
 
 sol2.u</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">4-element Vector{Float64}:
-  0.17340004980722828
-  0.4576668118825521
-  0.6140608589533941
- -0.6112845779009817</code></pre><p>Then refactorization will occur when a new <code>A</code> is given:</p><pre><code class="language-julia hljs">A2 = rand(n, n)
+  0.4854947847900757
+  0.42381043681365327
+  1.3101828890098983
+ -1.0201034966028641</code></pre><p>Then refactorization will occur when a new <code>A</code> is given:</p><pre><code class="language-julia hljs">A2 = rand(n, n)
 linsolve.A = A2
 sol3 = solve!(linsolve)
 
 sol3.u</code></pre><pre class="documenter-example-output"><code class="nohighlight hljs ansi">4-element Vector{Float64}:
-  0.8836245572198543
-  0.2705142275035271
- -0.6695300906505159
-  0.7135833472649182</code></pre><p>The factorization occurs on the first solve, and it stores the factorization in the cache. You can retrieve this cache via <code>sol.cache</code>, which is the same object as the <code>init</code>, but updated to know not to re-solve the factorization.</p><p>The advantage of course with using LinearSolve.jl in this form is that it is efficient while being agnostic to the linear solver. One can easily swap in iterative solvers, sparse solvers, etc. and it will do all the tricks like caching the symbolic factorization if the sparsity pattern is unchanged.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../linear/">« Solving Linear Systems in Julia</a><a class="docs-footer-nextpage" href="../../basics/LinearProblem/">Linear Problems »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.1.2 on <span class="colophon-date" title="Saturday 28 October 2023 22:48">Saturday 28 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
+  -3.7627654401470405
+ -14.635469364956819
+  24.62134544427915
+  -3.4122537219647175</code></pre><p>The factorization occurs on the first solve, and it stores the factorization in the cache. You can retrieve this cache via <code>sol.cache</code>, which is the same object as the <code>init</code>, but updated to know not to re-solve the factorization.</p><p>The advantage of course with using LinearSolve.jl in this form is that it is efficient while being agnostic to the linear solver. One can easily swap in iterative solvers, sparse solvers, etc. and it will do all the tricks like caching the symbolic factorization if the sparsity pattern is unchanged.</p></article><nav class="docs-footer"><a class="docs-footer-prevpage" href="../linear/">« Solving Linear Systems in Julia</a><a class="docs-footer-nextpage" href="../../basics/LinearProblem/">Linear Problems »</a><div class="flexbox-break"></div><p class="footer-message">Powered by <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> and the <a href="https://julialang.org/">Julia Programming Language</a>.</p></nav></div><div class="modal" id="documenter-settings"><div class="modal-background"></div><div class="modal-card"><header class="modal-card-head"><p class="modal-card-title">Settings</p><button class="delete"></button></header><section class="modal-card-body"><p><label class="label">Theme</label><div class="select"><select id="documenter-themepicker"><option value="documenter-light">documenter-light</option><option value="documenter-dark">documenter-dark</option><option value="auto">Automatic (OS)</option></select></div></p><hr/><p>This document was generated with <a href="https://github.com/JuliaDocs/Documenter.jl">Documenter.jl</a> version 1.1.2 on <span class="colophon-date" title="Sunday 29 October 2023 11:31">Sunday 29 October 2023</span>. Using Julia version 1.9.3.</p></section><footer class="modal-card-foot"></footer></div></div></div></body></html>
